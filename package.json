@@ -1,0 +1,30 @@
+{
+  "name": "gullit",
+  "version": "1.0.0",
+  "description": "Web frontend for SportySpots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SportySpots/gullit.git"
+  },
+  "keywords": [
+    "sportyspots"
+  ],
+  "author": "SportSpots team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SportySpots/gullit/issues"
+  },
+  "homepage": "https://github.com/SportySpots/gullit#readme",
+  "dependencies": {
+    "next": "^8.0.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
