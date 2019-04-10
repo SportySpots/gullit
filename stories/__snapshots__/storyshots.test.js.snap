@@ -3,10 +3,10 @@
 exports[`Storyshots Index Home 1`] = `
 <div>
   <a
-    href="/about"
+    href="/games"
     onClick={[Function]}
   >
-    test page
+    games page
   </a>
   Welcome to Next.js!
 </div>
