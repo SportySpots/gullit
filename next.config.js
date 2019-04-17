@@ -1,5 +1,4 @@
 module.exports = {
-  useFileSystemPublicRoutes: false,
   serverRuntimeConfig: {
     // Will only be available on the server side
     mySecret: 'secret',
