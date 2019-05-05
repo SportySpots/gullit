@@ -24,6 +24,7 @@ class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+          <link href="https://fonts.googleapis.com/css?family=Rajdhani:400,600,700" rel="stylesheet" />
           {/* Step 5: Output the styles in the head  */}
           {styleTags}
         </Head>

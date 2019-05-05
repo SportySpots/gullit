@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 const Title = styled.h1`
   color: red;
+  font-family: 'Rajdhani', sans-serif;
 `;
 
 const Home = () => (
