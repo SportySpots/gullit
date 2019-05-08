@@ -1,6 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import { ThemeProvider } from 'styled-components';
+import Main from '../layouts/Main';
 import theme from '../theme';
 
 class MyApp extends App {
@@ -20,7 +21,9 @@ class MyApp extends App {
     return (
       <Container>
         <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
+          <Main>
+            <Component {...pageProps} />
+          </Main>
         </ThemeProvider>
       </Container>
     );
