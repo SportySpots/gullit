@@ -1,5 +1,6 @@
 import colors from './colors';
 
+// See https://rebassjs.org/theming
 const theme = {
   // breakpoints: ['40em', '52em', '64em'],
   // fontSizes: [
