@@ -1,29 +1,30 @@
 // import React from 'react';
 // import { propType } from 'graphql-anywhere';
-// import styled from 'styled-components/native';
+// import styled from 'styled-components';
 // import moment from 'moment';
+// import { Flex, Box, Image, Card } from 'rebass';
 // import gameFragment from '../../../GraphQL/Games/Fragments/game';
 // import colors from '../../../theme/colors';
 // // import I18n from '../../../I18n';
-// import Text from '../../Common/Text';
-// import DotSpacer from '../../Common/DotSpacer';
-// import Spacer from '../../Common/Spacer';
-// import Row from '../../Common/Row';
-// import Icon from '../../Common/Icon';
-// import Avatar from '../../Common/Avatar';
-// import BackgroundImage from '../../Spots/BackgroundImage';
-// import Organizer from '../Organizer';
-// import Attendees from '../Attendees';
-// import GameCanceledFlag from '../GameCanceledFlag';
-// import { getAttendees } from '../utils';
+// // import Text from '../../Common/Text';
+// // import DotSpacer from '../../Common/DotSpacer';
+// // import Spacer from '../../Common/Spacer';
+// // import Row from '../../Common/Row';
+// // import Icon from '../../Common/Icon';
+// // import Avatar from '../../Common/Avatar';
+// // import BackgroundImage from '../../Spots/BackgroundImage';
+// // import Organizer from '../Organizer';
+// // import Attendees from '../Attendees';
+// // import GameCanceledFlag from '../GameCanceledFlag';
+// // import { getAttendees } from '../utils';
 
 // //------------------------------------------------------------------------------
 // // CONSTANTS:
 // //------------------------------------------------------------------------------
 // const CARD_HEIGHT = 192;
+// // aprox, we are not considering the padding from the parent container
 // const CARD_HEIGHT_CANCELED = 252;
-// aprox, we are not considering the padding from the parent container
-// const CARD_WIDTH = Dimensions.get('window').width;
+// const CARD_WIDTH = 300;
 // const HEADER_HEIGHT = 58;
 // //------------------------------------------------------------------------------
 // // STYLE:
