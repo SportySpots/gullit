@@ -45,7 +45,9 @@
     "node-fetch": "^2.3.0",
     "react": "^16.8.6",
     "react-apollo": "^2.5.4",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "rebass": "^3.1.0",
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -58,6 +60,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.0",
     "cors-anywhere": "^0.4.1",
     "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.16.0",
