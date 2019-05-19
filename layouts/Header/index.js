@@ -14,9 +14,16 @@ const Container = styled(Flex)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const Header = () => (
-  <Container justifyContent="space-between">
-    <Box>
-      Logo
+  <Container
+    alignItems="center"
+    justifyContent="space-between"
+  >
+    <Box px="2">
+      <img
+        src="/static/sportyspots-logo.png"
+        alt="placeholder"
+        height="35"
+      />
     </Box>
     {/* <Box>
       <BurgerButton />
