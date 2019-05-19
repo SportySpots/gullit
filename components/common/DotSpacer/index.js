@@ -9,7 +9,7 @@ import getPixelsFromSize from './utils';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled.div`
-  margin-horizontal: ${({ size }) => (getPixelsFromSize(size))}px;
+  margin: 0 ${({ size }) => (getPixelsFromSize(size))}px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -18,6 +18,7 @@ const DotSpacer = ({ size }) => (
   <Container size={size}>
     <Text
       size="M"
+      fontSize={4}
       color="shade"
       fontFamily="raj"
     >

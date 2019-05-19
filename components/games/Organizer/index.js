@@ -17,6 +17,8 @@ const Organizer = ({ organizer /* , textSize */ }) => (
     <Spacer row size="M" />
     <Text
       // size={textSize}
+      fontSize={2}
+      // fontWeight={600}
       fontFamily="raj"
     >
       {organizer.name}

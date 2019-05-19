@@ -2,6 +2,7 @@ import React from 'react';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import moment from 'moment';
+import { Icon } from 'microicon';
 import {
   Flex,
   // Box,
@@ -142,11 +143,14 @@ const GameCard = ({ game }) => {
     >
       <Top
         alignItems="center"
-        px={2}
+        px={3}
       >
         <Organizer organizer={organizer} textSize="M" />
         <DotSpacer />
-        <Text size="M" fontFamily="raj">
+        <Text
+          size="M"
+          fontFamily="raj"
+        >
           {sport.category}
         </Text>
       </Top>
@@ -172,19 +176,15 @@ const GameCard = ({ game }) => {
             fontFamily="raj"
             size="ML"
             color="white"
-            numberOfLines={2}
+            // numberOfLines={2}
+            fontSize={3}
+            fontWeight={600}
           >
             {name}
           </Text>
           <Spacer size="M" />
-          <Flex>
-            {/* <Icon
-              iconSet="Ionicons"
-              iconName="ios-time"
-              color="white"
-              size={24}
-              style={iconStyle}
-            /> */}
+          <Flex alignItems="center">
+            <Icon name="schedule" size={24} color="white" />
             <Spacer row size="M" />
             <Text
               fontFamily="raj"
@@ -194,13 +194,7 @@ const GameCard = ({ game }) => {
               {formattedStartTime}
             </Text>
             <Spacer row size="L" />
-            {/* <Icon
-              iconSet="MaterialCommunityIcons"
-              iconName="map-marker"
-              color="white"
-              size={24}
-              style={iconStyle}
-            /> */}
+            <Icon name="place" size={24} color="white" />
             <Spacer row size="M" />
             <Text
               fontFamily="raj"
