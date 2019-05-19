@@ -53,16 +53,52 @@ const Top = styled(Flex)`
 `;
 //------------------------------------------------------------------------------
 const Bottom = styled.div`
-  flex: 1;
+  /* position: relative; */
+  /* height: ${({ height }) => height}px; */
+  height: 100%;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  /* background-color: ${({ theme }) => theme.colors.transparent}; */
+
   background-image: url(${({ img }) => img});
   background-color: ${({ theme }) => theme.colors.darkGreen};
+  /* background-position: 70%; */
 `;
 //------------------------------------------------------------------------------
+// const BgImg = styled.div`
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   /* height: ${({ height }) => height}px; */
+//   border-bottom-left-radius: 8px;
+//   border-bottom-right-radius: 8px;
+//   background-image: url(${({ img }) => img});
+//   background-color: ${({ theme }) => theme.colors.darkGreen};
+//   background-position: 20%;
+//   z-index: -2;
+// `;
+//------------------------------------------------------------------------------
+// const Overlay = styled.div`
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   background-color: ${({ theme }) => theme.colors.black};
+//   opacity: 0.5;
+//   border-bottom-left-radius: ${({ top }) => (top ? 0 : 8)}px;
+//   border-bottom-right-radius: ${({ top }) => (top ? 0 : 8)}px;
+//   border-top-left-radius: ${({ top }) => (top ? 8 : 0)}px;
+//   border-top-right-radius: ${({ top }) => (top ? 8 : 0)}px;
+//   z-index: -1;
+// `;
+//------------------------------------------------------------------------------
 const Container = styled.div`
-  flex: 1;
-  justify-content: flex-end;
+  /* flex: 1;
+  justify-content: flex-end; */
+  height: 100%;
   padding: 16px;
 `;
 //------------------------------------------------------------------------------
@@ -85,22 +121,23 @@ const GameCard = ({ game }) => {
   const isCanceled = status === 'CANCELED';
   const attendees = getAttendees(game.attendees);
   const formattedStartTime = moment.utc(startTime).local().format('D-MM HH:mm');
-  const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S')
-    * (!!attendees && attendees.length > 0);
+  const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S');
+  // * (!!attendees && attendees.length > 0);
 
+  const bgImgHeight = cardHeight - HEADER_HEIGHT;
   const imgs = getSpotImages({
     images: spot.images || [],
-    height: cardHeight - HEADER_HEIGHT,
+    height: bgImgHeight,
     width: CARD_WIDTH,
   });
 
   return (
     <Card
-      bg="#f6f6ff"
+      bg="transparent"
       borderRadius={8}
       boxShadow="0 2px 16px rgba(0, 0, 0, 0.25)"
       m={2}
-      style={{ maxWidth: CARD_WIDTH, width: '100%' }}
+      style={{ maxWidth: CARD_WIDTH, width: '100%', overflow: 'hidden' }}
       height={cardHeight}
     >
       <Top
@@ -109,11 +146,16 @@ const GameCard = ({ game }) => {
       >
         <Organizer organizer={organizer} textSize="M" />
         <DotSpacer />
-        <Text size="M">
+        <Text size="M" fontFamily="raj">
           {sport.category}
         </Text>
       </Top>
-      <Bottom img={imgs && imgs.length > 0 ? imgs[0] : null}>
+      <Bottom
+        // height={bgImgHeight}
+        img={imgs && imgs.length > 0 ? imgs[0] : null}
+      >
+        {/* <BgImg img={imgs && imgs.length > 0 ? imgs[0] : null} />
+        <Overlay /> */}
         {/* <BackgroundImage
           images={spot.images}
           height={cardHeight - HEADER_HEIGHT}
@@ -126,7 +168,12 @@ const GameCard = ({ game }) => {
           </React.Fragment>
         )}
         <Container>
-          <Text size="ML" color="white" numberOfLines={2}>
+          <Text
+            fontFamily="raj"
+            size="ML"
+            color="white"
+            numberOfLines={2}
+          >
             {name}
           </Text>
           <Spacer size="M" />
@@ -139,7 +186,11 @@ const GameCard = ({ game }) => {
               style={iconStyle}
             /> */}
             <Spacer row size="M" />
-            <Text size="SM" color="white">
+            <Text
+              fontFamily="raj"
+              size="SM"
+              color="white"
+            >
               {formattedStartTime}
             </Text>
             <Spacer row size="L" />
@@ -151,7 +202,11 @@ const GameCard = ({ game }) => {
               style={iconStyle}
             /> */}
             <Spacer row size="M" />
-            <Text size="SM" color="white">
+            <Text
+              fontFamily="raj"
+              size="SM"
+              color="white"
+            >
               {spot.name}
             </Text>
           </Flex>
