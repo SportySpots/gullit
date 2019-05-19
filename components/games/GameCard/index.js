@@ -13,13 +13,13 @@ import gameFragment from '../../../GraphQL/Games/Fragments/game';
 // import colors from '../../../theme/colors';
 // import I18n from '../../../I18n';
 // import Text from '../../Common/Text';
-// import DotSpacer from '../../Common/DotSpacer';
+import DotSpacer from '../../common/DotSpacer';
 import Spacer from '../../common/Spacer';
 // import Row from '../../Common/Row';
 // import Icon from '../../Common/Icon';
 import Avatar from '../../common/Avatar';
 // import BackgroundImage from '../../Spots/BackgroundImage';
-// import Organizer from '../Organizer';
+import Organizer from '../Organizer';
 import Attendees from '../Attendees';
 // import GameCanceledFlag from '../GameCanceledFlag';
 import { getAttendees } from '../utils';
@@ -72,7 +72,7 @@ const GameCard = ({ game }) => {
     spot,
     start_time: startTime,
     status,
-    // organizer,
+    organizer,
     sport,
     name,
   } = game;
@@ -95,8 +95,8 @@ const GameCard = ({ game }) => {
       height={cardHeight}
     >
       <Top alignItems="center">
-        {/* <Organizer organizer={organizer} textSize="M" />
-        <DotSpacer /> */}
+        <Organizer organizer={organizer} textSize="M" />
+        <DotSpacer />
         <Text size="M">
           {sport.category}
         </Text>
