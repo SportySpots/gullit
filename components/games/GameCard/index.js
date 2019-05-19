@@ -20,7 +20,7 @@ import Spacer from '../../common/Spacer';
 import Avatar from '../../common/Avatar';
 // import BackgroundImage from '../../Spots/BackgroundImage';
 // import Organizer from '../Organizer';
-// import Attendees from '../Attendees';
+import Attendees from '../Attendees';
 // import GameCanceledFlag from '../GameCanceledFlag';
 import { getAttendees } from '../utils';
 
@@ -143,10 +143,12 @@ const GameCard = ({ game }) => {
               {spot.name}
             </Text>
           </Flex>
-          {/* {attendees.length > 0 && [
-            <Spacer key="spacer" size="L" />,
-            <Attendees key="attendees" attendees={attendees} />,
-          ]} */}
+          {attendees.length > 0 && (
+            <React.Fragment>
+              <Spacer size="L" />
+              <Attendees attendees={attendees} />
+            </React.Fragment>
+          )}
         </Container>
       </Bottom>
     </Card>
