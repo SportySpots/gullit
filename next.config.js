@@ -8,5 +8,6 @@ module.exports = {
     // Will be available on both server and client
     // seedorfGraphQLUrl: 'https://api.sportyspots.com/graphql',
     seedorfGraphQLUrl: 'http://localhost:8080/https://api.sportyspots.com/graphql',
+    seedorfHost: 'https://api.sportyspots.com',
   },
 };

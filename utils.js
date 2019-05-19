@@ -1,3 +1,7 @@
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+
 // import Config from 'react-native-config';
 // import isString from 'lodash/isString';
 // import castArray from 'lodash/castArray';
@@ -31,30 +35,30 @@ export function makeNumGenerator() {
   };
 }
 
-// const convertS3ToImgix = ({ image, height, width }) => (
-//   image.replace('https://s3.amazonaws.com/sportyspots-prd', 'http://sportyspots.imgix.net')
-//     .concat('?auto=compress')
-//     // .concat(height ? `&h=${height}` : '')
-//     .concat(width ? `&w=${width}` : '')
-// );
+const convertS3ToImgix = ({ image, /* height, */ width }) => (
+  image.replace('https://s3.amazonaws.com/sportyspots-prd', 'http://sportyspots.imgix.net')
+    .concat('?auto=compress')
+    // .concat(height ? `&h=${height}` : '')
+    .concat(width ? `&w=${width}` : '')
+);
 
-// const getImageUrl = ({ image, height, width }) => (
-//   image.startsWith('http') // TODO: this should be https://s3.amazonaws.com/sportyspots-
-//     ? convertS3ToImgix({ image, height, width })
-//     : `${Config.SEEDORF_HOST}${image}`
-// );
+const getImageUrl = ({ image, height, width }) => (
+  image.startsWith('http') // TODO: this should be https://s3.amazonaws.com/sportyspots-
+    ? convertS3ToImgix({ image, height, width })
+    : `${publicRuntimeConfig.seedorfHost}${image}`
+);
 
-// const DEFAULT_SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/spot-placeholder.png';
+const DEFAULT_SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/spot-placeholder.png';
 
-// export const getSpotImages = ({ images, height, width }) => {
-//   if (!height || !width) {
-//     throw new Error('Height | width is not defined');
-//   }
+export const getSpotImages = ({ images, height, width }) => {
+  if (!height || !width) {
+    throw new Error('Height | width is not defined');
+  }
 
-//   return images && images.length > 0
-//     ? images.map(({ image }) => getImageUrl({ image, height, width }))
-//     : [DEFAULT_SPOT_IMG];
-// };
+  return images && images.length > 0
+    ? images.map(({ image }) => getImageUrl({ image, height, width }))
+    : [DEFAULT_SPOT_IMG];
+};
 
 // const routeToString = (route, depth = 0) => {
 //   let str = route.routeName || 'ROOT';

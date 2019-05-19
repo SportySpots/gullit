@@ -12,6 +12,7 @@ import {
 import gameFragment from '../../../GraphQL/Games/Fragments/game';
 // import colors from '../../../theme/colors';
 // import I18n from '../../../I18n';
+import { getSpotImages } from '../../../utils';
 // import Text from '../../Common/Text';
 import DotSpacer from '../../common/DotSpacer';
 import Spacer from '../../common/Spacer';
@@ -45,7 +46,7 @@ const HEADER_HEIGHT = 58;
 //------------------------------------------------------------------------------
 const Top = styled(Flex)`
   height: ${HEADER_HEIGHT}px;
-  padding-horizontal: 16px;
+  /* padding-horizontal: 16px; */
   background-color: white;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -55,6 +56,8 @@ const Bottom = styled.div`
   flex: 1;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  background-image: url(${({ img }) => img});
+  background-color: ${({ theme }) => theme.colors.darkGreen};
 `;
 //------------------------------------------------------------------------------
 const Container = styled.div`
@@ -85,6 +88,12 @@ const GameCard = ({ game }) => {
   const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S')
     * (!!attendees && attendees.length > 0);
 
+  const imgs = getSpotImages({
+    images: spot.images || [],
+    height: cardHeight - HEADER_HEIGHT,
+    width: CARD_WIDTH,
+  });
+
   return (
     <Card
       bg="#f6f6ff"
@@ -94,14 +103,17 @@ const GameCard = ({ game }) => {
       style={{ maxWidth: CARD_WIDTH, width: '100%' }}
       height={cardHeight}
     >
-      <Top alignItems="center">
+      <Top
+        alignItems="center"
+        px={2}
+      >
         <Organizer organizer={organizer} textSize="M" />
         <DotSpacer />
         <Text size="M">
           {sport.category}
         </Text>
       </Top>
-      <Bottom>
+      <Bottom img={imgs && imgs.length > 0 ? imgs[0] : null}>
         {/* <BackgroundImage
           images={spot.images}
           height={cardHeight - HEADER_HEIGHT}
