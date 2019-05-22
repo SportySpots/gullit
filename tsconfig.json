@@ -43,6 +43,9 @@
     "pages",
     "components",
     "layouts",
-    "theme"
+    "theme",
+    "GraphQL",
+    ".storybook",
+    ".storyshots"
   ]
 }

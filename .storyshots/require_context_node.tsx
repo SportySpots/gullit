@@ -1,9 +1,12 @@
+import fs from 'fs';
+import path from 'path';
+
 export default (base = '.', scanSubDirectories = false, regularExpression = /\.js$/) => {
-  const fs = require('fs');
-  const path = require('path');
+  // const fs = require('fs');
+  // const path = require('path');
   const files = {};
 
-  function readDirectory(directory) {
+  function readDirectory(directory: string) {
     fs.readdirSync(directory).forEach((file) => {
       const fullPath = path.resolve(directory, file);
 
@@ -21,7 +24,7 @@ export default (base = '.', scanSubDirectories = false, regularExpression = /\.j
 
   readDirectory(path.resolve(__dirname, base));
 
-  function Module(file) {
+  function Module(file: string) {
     // eslint-disable-next-line import/no-dynamic-require
     return require(file);
   }
