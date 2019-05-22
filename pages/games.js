@@ -5,7 +5,6 @@ import { Query } from 'react-apollo';
 import { Flex, Text } from 'rebass';
 import moment from 'moment';
 
-import withApolloProvider from '../GraphQL/withApolloProvider';
 import GET_GAMES_LIST from '../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GameCard from '../components/games/GameCard';
 
@@ -111,4 +110,4 @@ const Games = () => (
   </Query>
 );
 
-export default withApolloProvider(Games);
+export default Games;
