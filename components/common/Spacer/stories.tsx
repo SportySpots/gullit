@@ -19,21 +19,21 @@ storiesOf('common.Spacer', module)
   .add('Spacer size S row', () => (
     <Flex style={{ borderWidth: 1, borderColor: 'blue' }}>
       <HorizontalBlock />
-      <Spacer row size="S" />
+      <Spacer row={true} size="S" />
       <HorizontalBlock />
     </Flex>
   ))
   .add('Spacer size M row', () => (
     <Flex style={{ borderWidth: 1, borderColor: 'blue' }}>
       <HorizontalBlock />
-      <Spacer row size="M" />
+      <Spacer row={true} size="M" />
       <HorizontalBlock />
     </Flex>
   ))
   .add('Spacer size L row', () => (
     <Flex style={{ borderWidth: 1, borderColor: 'blue' }}>
       <HorizontalBlock />
-      <Spacer row size="L" />
+      <Spacer row={true} size="L" />
       <HorizontalBlock />
     </Flex>
   ))

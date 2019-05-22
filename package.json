@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "typecheck": "tsc --noEmit",
     "build": "next build",
     "dev": "ts-node --compiler-options '{\"module\":\"commonjs\"}' server.ts",
     "start": "ts-node --compiler-options '{\"module\":\"commonjs\"}' server.ts",
@@ -32,6 +33,7 @@
   "homepage": "https://github.com/SportySpots/gullit#readme",
   "dependencies": {
     "@storybook/addon-storyshots": "^5.0.6",
+    "@types/styled-components": "^4.1.15",
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "apollo-link": "^1.2.11",
@@ -69,6 +71,7 @@
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
     "@types/react-test-renderer": "^16.8.1",
+    "@types/storybook__react": "^4.0.1",
     "@zeit/next-typescript": "^1.1.1",
     "apollo-link-schema": "^1.2.2",
     "babel-eslint": "^10.0.1",
@@ -94,7 +97,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{js,jsx}": [
+      "*.{js,jsx,ts,tsx}": [
         "tslint",
         "git add"
       ]
@@ -102,7 +105,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "yarn lint-staged && yarn typecheck"
     }
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.ts"
+    ]
   }
 }

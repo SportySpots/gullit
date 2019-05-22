@@ -8,13 +8,13 @@ import userNameAvatarFragment from '../../../GraphQL/Users/Fragments/userNameAva
 import Avatar from '../../common/Avatar';
 import Spacer from '../../common/Spacer';
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // COMPONENT:
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 const Organizer = ({ organizer /* , textSize */ }) => (
   <Flex alignItems="center">
     <Avatar size="S" user={organizer} />
-    <Spacer row size="M" />
+    <Spacer row={true} size="M" />
     <Text
       // size={textSize}
       fontSize={2}

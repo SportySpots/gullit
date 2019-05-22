@@ -5,7 +5,7 @@ import { makeNumGenerator } from '../../../utils';
 const CappedList = ({
   max, data, component, propsMap, capComponent, keyExtractor, ItemSeparatorComponent,
 }) => {
-  const itemMapper = limit => (
+  const itemMapper = (limit) => (
     (item, index) => [
       React.createElement(component, { key: keyExtractor(item), ...propsMap(item) }),
       index < limit - 1 && <ItemSeparatorComponent key={`separator-${keyExtractor(item)}`} />,
@@ -38,7 +38,7 @@ CappedList.propTypes = {
 };
 
 CappedList.defaultProps = {
-  propsMap: item => item,
+  propsMap: (item) => item,
   keyExtractor: makeNumGenerator(),
   ItemSeparatorComponent: () => null,
 };

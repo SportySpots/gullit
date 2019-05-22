@@ -76,7 +76,6 @@ export const getSpotImages = ({ images, height, width }) => {
 //   console.log(routeToString(route));
 // };
 
-
 /**
  * errors = {
  *  email: ['This field must be unique.'],
@@ -86,7 +85,7 @@ export const getSpotImages = ({ images, height, width }) => {
  * errors = ['Invalid Spot. Spot being assigned doesnt have the already associated sport']
  * OR
  * errors = 'Email already in use'
-*/
+ */
 // export const curateErrors = (curateFieldName, curateErrorMsg) => (errors) => {
 //   if (isString(errors)) {
 //     return { [curateFieldName(null)]: [errors] }; // curatedErrors

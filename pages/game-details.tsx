@@ -4,9 +4,9 @@ import { Query } from 'react-apollo';
 import { Text } from 'rebass';
 import GET_GAME_DETAILS from '../GraphQL/Games/Queries/GET_GAME_DETAILS';
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // COMPONENT:
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 class GameDetails extends React.Component {
   static async getInitialProps({ query }) {
     const { uuid } = query;
@@ -29,7 +29,7 @@ class GameDetails extends React.Component {
           // refetch,
           // fetchMore,
         }) => {
-          if (loading) return <Text>Loading...</Text>;
+          if (loading) { return <Text>Loading...</Text>; }
           if (error) {
             console.log(error);
             return <Text>Something went wrong</Text>;

@@ -12,7 +12,7 @@ storiesOf('Common.Avatar', module)
     >
       {({ loading, error, data }) => {
         console.log('data', data);
-        if (loading || error) return null;
+        if (loading || error) { return null; }
         return <Avatar size="S" user={data.game.organizer} />;
       }}
     </Query>

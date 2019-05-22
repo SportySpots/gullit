@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import mockClient from '../GraphQL/ApolloMockClient';
 import theme from '../theme';
 
-const req = require.context('../', true, /stories\.js$/);
+const req = require.context('../', true, /stories\.tsx?$/);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
@@ -19,4 +19,3 @@ addDecorator((story) => (
 ));
 
 configure(loadStories, module);
-

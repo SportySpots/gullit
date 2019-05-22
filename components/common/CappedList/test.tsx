@@ -8,13 +8,15 @@ const CapComp = () => <div id="cap" />;
 
 describe('CappedList', () => {
   it('renders whole list when max >= data.length', () => {
-    const Capped = renderer.create(<CappedList
-      max={5}
-      data={[1, 2, 3, 4, 5]}
-      component={Comp}
-      propsMap={item => ({ num: item })}
-      capComponent={CapComp}
-    />);
+    const Capped = renderer.create(
+      <CappedList
+        max={5}
+        data={[1, 2, 3, 4, 5]}
+        component={Comp}
+        propsMap={(item) => ({ num: item })}
+        capComponent={CapComp}
+      />
+    );
 
     const tree = Capped.toTree().rendered;
 
@@ -25,12 +27,14 @@ describe('CappedList', () => {
 
   it('works without propsMap', () => {
     const data = [{ a: 1 }, { b: 2 }];
-    const Capped = renderer.create(<CappedList
-      max={5}
-      data={data}
-      component={Comp}
-      capComponent={CapComp}
-    />);
+    const Capped = renderer.create(
+      <CappedList
+        max={5}
+        data={data}
+        component={Comp}
+        capComponent={CapComp}
+      />
+    );
 
     const tree = Capped.toTree().rendered;
 
@@ -42,13 +46,15 @@ describe('CappedList', () => {
   describe('capped (max < data.length)', () => {
     const data = [1, 2, 3, 4, 5];
     it('terminates with capComponent', () => {
-      const Capped = renderer.create(<CappedList
-        max={3}
-        data={data}
-        component={Comp}
-        propsMap={item => ({ num: item })}
-        capComponent={CapComp}
-      />);
+      const Capped = renderer.create(
+        <CappedList
+          max={3}
+          data={data}
+          component={Comp}
+          propsMap={(item) => ({ num: item })}
+          capComponent={CapComp}
+        />
+      );
 
       const tree = Capped.toTree().rendered;
 
@@ -59,11 +65,13 @@ describe('CappedList', () => {
     });
 
     it('works without capComponent', () => {
-      const Capped = renderer.create(<CappedList
-        max={3}
-        data={data}
-        component={Comp}
-      />);
+      const Capped = renderer.create(
+        <CappedList
+          max={3}
+          data={data}
+          component={Comp}
+        />
+      );
 
       const tree = Capped.toTree().rendered;
 

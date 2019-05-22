@@ -8,13 +8,13 @@ import CappedList from '../../common/CappedList';
 import Spacer from '../../common/Spacer';
 import getPixelsFromSize from '../../common/Spacer/utils';
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // CONSTANTS:
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 const SPACER_SIZE = 'M';
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // COMPONENT:
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 class Attendees extends React.PureComponent {
   // state = {
   //   width: 0,
@@ -55,7 +55,7 @@ class Attendees extends React.PureComponent {
           keyExtractor={({ user }) => (user.uuid)}
           component={({ user }) => <Avatar size="S" user={user} />}
           capComponent={({ data }) => <Avatar key="cap" size="S" text={`+${data.length}`} />}
-          ItemSeparatorComponent={() => <Spacer row size={SPACER_SIZE} />}
+          ItemSeparatorComponent={() => <Spacer row={true} size={SPACER_SIZE} />}
         />
       </Flex>
     );

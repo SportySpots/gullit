@@ -7,9 +7,8 @@ import { ApolloProvider, Query } from 'react-apollo';
 import GET_GAMES_LIST from '../GraphQL/Games/Queries/GET_GAMES_LIST';
 import client from '../GraphQL/ApolloClient';
 
-
 const GamesComponent = ({ games }) => (
-  !games ? null : games.map(game => (
+  !games ? null : games.map((game) => (
     <div key={game.uuid}>
       <Link as={`/game?uuid=${game.uuid}`} href={`/game/${game.uuid}`}>
         <a>{JSON.stringify(game)}</a>
@@ -23,8 +22,6 @@ class Games extends React.Component {
     console.log('QUERY', query);
     return {};
   }
-
-
 
   render() {
     return (

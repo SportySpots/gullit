@@ -27,16 +27,16 @@ import Attendees from '../Attendees';
 // import GameCanceledFlag from '../GameCanceledFlag';
 import { getAttendees } from '../utils';
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // CONSTANTS:
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 const CARD_HEIGHT = 192;
 const CARD_HEIGHT_CANCELED = 252;
 const CARD_WIDTH = 300;
 const HEADER_HEIGHT = 58;
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // STYLE:
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // const Outer = styled.div`
 //   height: ${({ height }) => height}px;
 //   border-radius: 8px;
@@ -45,7 +45,7 @@ const HEADER_HEIGHT = 58;
 //   shadow-opacity: 0.8;
 //   elevation: 2;
 // `;
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 const Top = styled(Flex)`
   height: ${HEADER_HEIGHT}px;
   /* padding-horizontal: 16px; */
@@ -53,7 +53,7 @@ const Top = styled(Flex)`
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 `;
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 const Bottom = styled.div`
   /* position: relative; */
   /* height: ${({ height }) => height}px; */
@@ -66,7 +66,7 @@ const Bottom = styled.div`
   background-color: ${({ theme }) => theme.colors.darkGreen};
   /* background-position: 70%; */
 `;
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // const BgImg = styled.div`
 //   position: absolute;
 //   top: 0;
@@ -81,7 +81,7 @@ const Bottom = styled.div`
 //   background-position: 20%;
 //   z-index: -2;
 // `;
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // const Overlay = styled.div`
 //   position: absolute;
 //   top: 0;
@@ -96,18 +96,18 @@ const Bottom = styled.div`
 //   border-top-right-radius: ${({ top }) => (top ? 8 : 0)}px;
 //   z-index: -1;
 // `;
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 const Inner = styled.div`
   /* flex: 1;
   justify-content: flex-end; */
   height: 100%;
   padding: 16px;
 `;
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // const iconStyle = { backgroundColor: colors.transparent };
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // COMPONENT:
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 const GameCard = ({ game, onClick }) => {
   const {
     spot,
@@ -187,7 +187,7 @@ const GameCard = ({ game, onClick }) => {
           <Spacer size="M" />
           <Flex alignItems="center">
             <Icon name="schedule" size={24} color="white" />
-            <Spacer row size="M" />
+            <Spacer row={true} size="M" />
             <Text
               fontFamily="raj"
               size="SM"
@@ -195,9 +195,9 @@ const GameCard = ({ game, onClick }) => {
             >
               {formattedStartTime}
             </Text>
-            <Spacer row size="L" />
+            <Spacer row={true} size="L" />
             <Icon name="place" size={24} color="white" />
-            <Spacer row size="M" />
+            <Spacer row={true} size="M" />
             <Text
               fontFamily="raj"
               size="SM"
@@ -224,7 +224,7 @@ GameCard.propTypes = {
 };
 
 GameCard.defaultProps = {
-  onClick: () => {},
+  onClick: () => null,
 };
 
 export default GameCard;

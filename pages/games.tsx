@@ -8,9 +8,9 @@ import moment from 'moment';
 import GET_GAMES_LIST from '../GraphQL/Games/Queries/GET_GAMES_LIST';
 import GameCard from '../components/games/GameCard';
 
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // CONSTANTS:
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 export const CITIES = [
   {
     id: 'amsterdam',
@@ -58,7 +58,7 @@ export const CITIES = [
     },
   },
 ];
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 const maxDistance = 20;
 
 const { coords } = CITIES[0];
@@ -70,9 +70,9 @@ const variables = {
   start_time__gte: moment().startOf('day').toISOString(),
   distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
 };
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // COMPONENT:
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 const Games = () => (
   <Query
     query={GET_GAMES_LIST}
@@ -86,7 +86,7 @@ const Games = () => (
         // refetch,
         // fetchMore,
       }) => {
-      if (loading) return <Text>Loading...</Text>;
+      if (loading) { return <Text>Loading...</Text>; }
       if (error) {
         console.log(error);
         return <Text>Something went wrong</Text>;
@@ -97,7 +97,7 @@ const Games = () => (
           justifyContent="center"
           flexWrap="wrap"
         >
-          {data.games.map(game => (
+          {data.games.map((game) => (
             <GameCard
               key={game.uuid}
               game={game}

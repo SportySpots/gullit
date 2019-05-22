@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from 'rebass';
 
-const Divider = props => (
+const Divider = (props) => (
   <Box
     {...props}
     as="hr"

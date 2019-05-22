@@ -11,7 +11,7 @@ const theme = {
   //   0, 4, 8, 16, 32, 64, 128, 256,
   // ],
   fonts: {
-    raj: "'Rajdhani', sans-serif",
+    raj: '\'Rajdhani\', sans-serif',
   },
   // shadows: {
   //   small: '0 0 4px rgba(0, 0, 0, .125)',
