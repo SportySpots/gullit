@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
-import { Text } from 'rebass';
+import { Text, Flex } from 'rebass';
 
 import GET_GAME_DETAILS from '../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import GameDate from '../components/games/GameDate';
 import GameDetails from '../components/games/GameDetails';
 
 //------------------------------------------------------------------------------
@@ -37,7 +38,12 @@ class GameDetailsPage extends React.Component {
             return <Text>Something went wrong</Text>;
           }
 
-          return <GameDetails game={data.game} />;
+          return (
+            <Flex flexDirection="column">
+              <GameDate game={data.game} />
+              <GameDetails game={data.game} />
+            </Flex>
+          );
         }}
       </Query>
     );
