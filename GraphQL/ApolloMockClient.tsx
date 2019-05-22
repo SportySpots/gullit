@@ -7,7 +7,7 @@ import { buildClientSchema } from 'graphql';
 import { onError } from 'apollo-link-error';
 import { addMockFunctionsToSchema } from 'graphql-tools';
 import React from 'react';
-import PropTypes from 'prop-types';
+
 // import { addErrorHandlers, cache } from './ApolloClient';
 import mocks from './mocks';
 
@@ -18,7 +18,7 @@ const schema = buildClientSchema(require('../schema.graphql.json'));
 addMockFunctionsToSchema({ schema, mocks, preserveResolvers: false });
 
 
-export const addErrorHandlers = link => ApolloLink.from([
+export const addErrorHandlers = (link: ApolloLink) => ApolloLink.from([
   onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
       graphQLErrors.forEach(({ message, locations, path }) => {
@@ -30,7 +30,7 @@ export const addErrorHandlers = link => ApolloLink.from([
   link,
 ]);
 
-export const cache = new InMemoryCache({ dataIdFromObject: object => object.uuid || null });
+export const cache = new InMemoryCache({ dataIdFromObject: (object: any) => object.uuid || null });
 
 const mockClient = new ApolloClient({
   link: addErrorHandlers(new SchemaLink({ schema })),
@@ -39,22 +39,20 @@ const mockClient = new ApolloClient({
 
 export default mockClient;
 
-export const ApolloMockProvider = ({ children }) => (
+export const ApolloMockProvider = ({ children }: { children: any }) => (
   <ApolloProvider client={mockClient}>
     {children}
   </ApolloProvider>
 );
+//
+// ApolloMockProvider.propTypes = {
+//   children: PropTypes.func.isRequired,
+// };
 
-ApolloMockProvider.propTypes = {
-  children: PropTypes.func.isRequired,
-};
-
-export const withApolloMockProvider = (Component) => {
-  const ApolloComponent = props => (
+export const withApolloMockProvider = <T extends object>(Comp: React.ComponentType<T>) => {
+  return (props: T) => (
     <ApolloMockProvider>
-      <Component {...props} />
+      <Comp {...props} />
     </ApolloMockProvider>
   );
-
-  return ApolloComponent;
 };

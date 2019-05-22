@@ -1,4 +1,4 @@
-import { MockList } from 'graphql-tools/dist/index';
+import { MockList } from 'graphql-tools';
 import faker from 'faker';
 
 const mocks = {

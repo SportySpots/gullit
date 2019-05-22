@@ -1,4 +1,4 @@
-import ApolloClient from 'apollo-client';
+import ApolloClient, { DefaultOptions } from 'apollo-client';
 import { ApolloLink } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { onError } from 'apollo-link-error';
@@ -9,9 +9,9 @@ import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 
-const httpLink = createHttpLink({ uri: publicRuntimeConfig.seedorfGraphQLUrl, fetch });
+const httpLink = createHttpLink({ uri: publicRuntimeConfig.seedorfGraphQLUrl, fetch } as any);
 
-export const addErrorHandlers = (link) => ApolloLink.from([
+export const addErrorHandlers = (link: ApolloLink) => ApolloLink.from([
   onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
       graphQLErrors.forEach(({ message, locations, path }) => {
@@ -23,9 +23,9 @@ export const addErrorHandlers = (link) => ApolloLink.from([
   link,
 ]);
 
-export const cache = new InMemoryCache({ dataIdFromObject: (object) => object.uuid || null });
+export const cache = new InMemoryCache({ dataIdFromObject: (object: any) => object.uuid || null });
 
-const defaultOptions = {
+const defaultOptions: DefaultOptions = {
   watchQuery: {
     fetchPolicy: 'network-only',
     errorPolicy: 'ignore',

@@ -5,30 +5,31 @@ import PropTypes from 'prop-types'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import Head from 'next/head'
 import ApolloClient from './ApolloClient';
+import { NextComponentClass, NextContext } from 'next';
 
 // Gets the display name of a JSX component for dev tools
-function getComponentDisplayName (Component) {
-  return Component.displayName || Component.name || 'Unknown'
+function getComponentDisplayName (Component: React.ComponentClass<any>) {
+  return Component.displayName || Component.name || 'Unknown';
 }
 
-export default ComposedComponent => {
-  return class WithData extends Component {
-    static displayName = `WithData(${getComponentDisplayName(ComposedComponent)})`
+export default <T extends object>(ComposedComponent: NextComponentClass<T>) => {
+  return class WithData extends Component<T> {
+    static displayName = `WithData(${getComponentDisplayName(ComposedComponent)})`;
     static propTypes = {
       serverState: PropTypes.object.isRequired
-    }
+    };
 
-    static async getInitialProps (ctx) {
-      let serverState = {}
+    static async getInitialProps (ctx: NextContext) {
+      let serverState = {};
 
       // evaluate getInitialProps()
-      let composedInitialProps = {}
+      let composedInitialProps: any = {};
       if (ComposedComponent.getInitialProps) {
         composedInitialProps = await ComposedComponent.getInitialProps(ctx)
       }
 
       // Running all queries in the tree extracting the data
-      if (!process.browser) {
+      if (!(process as any).browser) {
         // const apollo = initApollo()
         // url prop if any of our queries needs it
         // const url = { query: ctx.query, pathname: ctx.pathname }
@@ -48,7 +49,7 @@ export default ComposedComponent => {
         }
         // getDataFromTree does not call componentWillUnmount
         // head side effect therefore need to be cleared manually
-        Head.rewind()
+        Head.rewind();
 
         // Extract query data from the Apollo store
         serverState = {
@@ -66,8 +67,8 @@ export default ComposedComponent => {
       }
     }
 
-    constructor (props) {
-      super(props)
+    constructor (props: T) {
+      super(props);
     }
 
     render () {
