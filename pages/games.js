@@ -73,7 +73,7 @@ const variables = {
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const Games = () => (
+const GamesPage = () => (
   <Query
     query={GET_GAMES_LIST}
     variables={variables}
@@ -110,4 +110,4 @@ const Games = () => (
   </Query>
 );
 
-export default Games;
+export default GamesPage;

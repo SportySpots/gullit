@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import { Text } from 'rebass';
+
 import GET_GAME_DETAILS from '../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import GameDetails from '../components/games/GameDetails';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class GameDetails extends React.Component {
+class GameDetailsPage extends React.Component {
   static async getInitialProps({ query }) {
     const { uuid } = query;
     return { uuid };
@@ -35,15 +37,15 @@ class GameDetails extends React.Component {
             return <Text>Something went wrong</Text>;
           }
 
-          return <Text>{JSON.stringify(data)}</Text>;
+          return <GameDetails game={data.game} />;
         }}
       </Query>
     );
   }
 }
 
-GameDetails.propTypes = {
+GameDetailsPage.propTypes = {
   uuid: PropTypes.string.isRequired,
 };
 
-export default GameDetails;
+export default GameDetailsPage;

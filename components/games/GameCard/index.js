@@ -127,7 +127,7 @@ const GameCard = ({ game, onClick }) => {
   // * (!!attendees && attendees.length > 0);
 
   const bgImgHeight = cardHeight - HEADER_HEIGHT;
-  const imgs = getSpotImages({
+  const imgs = getSpotImages({ // always return an image
     images: spot.images || [],
     height: bgImgHeight,
     width: CARD_WIDTH,
@@ -158,7 +158,7 @@ const GameCard = ({ game, onClick }) => {
       </Top>
       <Bottom
         // height={bgImgHeight}
-        img={imgs && imgs.length > 0 ? imgs[0] : null}
+        img={imgs[0]}
       >
         {/* <BgImg img={imgs && imgs.length > 0 ? imgs[0] : null} />
         <Overlay /> */}

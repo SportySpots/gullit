@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Heading } from 'rebass';
 
-const Home = () => (
+const HomePage = () => (
   <div>
     <Link href="/games">
       <a>games page</a>
@@ -17,4 +17,4 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+export default HomePage;
