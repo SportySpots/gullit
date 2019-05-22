@@ -35,29 +35,31 @@ export function makeNumGenerator() {
   };
 }
 
-const convertS3ToImgix = ({ image, /* height, */ width }) => (
+const convertS3ToImgix = ({ image, /* height, */ width }: {image: string, width: number}) => (
   image.replace('https://s3.amazonaws.com/sportyspots-prd', 'http://sportyspots.imgix.net')
     .concat('?auto=compress')
     // .concat(height ? `&h=${height}` : '')
     .concat(width ? `&w=${width}` : '')
 );
 
-const getImageUrl = ({ image, height, width }) => (
+const getImageUrl = ({ image, height, width }: {image: string, width: number, height: number}) => (
   image.startsWith('http') // TODO: this should be https://s3.amazonaws.com/sportyspots-
-    ? convertS3ToImgix({ image, height, width })
+    // ? convertS3ToImgix({ image, height, width })
+    ? convertS3ToImgix({ image, width })
     : `${publicRuntimeConfig.seedorfHost}${image}`
 );
 
 const DEFAULT_SPOT_IMG = 'https://raw.githubusercontent.com/SportySpots/cruijff/master/App/Images/spot-placeholder.png';
 
-export const getSpotImages = ({ images, height, width }) => {
-  if (!height || !width) {
-    throw new Error('Height | width is not defined');
-  }
+export const getSpotImages =
+  ({ images, height, width }: { images: Array<{ image: string }>, height: number, width: number }) => {
+    if (!height || !width) {
+      throw new Error('Height | width is not defined');
+    }
 
-  return images && images.length > 0
-    ? images.map(({ image }) => getImageUrl({ image, height, width }))
-    : [DEFAULT_SPOT_IMG];
+    return images && images.length > 0
+      ? images.map(({ image }) => getImageUrl({ image, height, width }))
+      : [DEFAULT_SPOT_IMG];
 };
 
 // const routeToString = (route, depth = 0) => {
