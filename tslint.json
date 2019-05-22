@@ -1,0 +1,26 @@
+{
+  "extends": ["tslint:recommended", "tslint-react"],
+  "rules": {
+    "member-access": false,
+    "no-console": false,
+    "no-debugger": false,
+    "object-literal-sort-keys": false,
+    "jsx-no-lambda": false,
+    "no-var-requires": false,
+    "ordered-imports": false,
+    "no-implicit-dependencies": [true, "dev", ["src"]],
+    "no-submodule-imports": [false],
+    "semicolon": [true, "always"],
+    "jsx-no-multiline-js": false,
+    "member-ordering": false,
+    "quotemark": [true, "single", "jsx-double"]
+  },
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "cypress/**/*.js",
+      "coverage/lcov-report/*.js"
+    ]
+  }
+}
