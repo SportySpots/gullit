@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import styled from 'styled-components';
 import moment from 'moment';
@@ -96,7 +97,7 @@ const Bottom = styled.div`
 //   z-index: -1;
 // `;
 //------------------------------------------------------------------------------
-const Container = styled.div`
+const Inner = styled.div`
   /* flex: 1;
   justify-content: flex-end; */
   height: 100%;
@@ -107,7 +108,7 @@ const Container = styled.div`
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameCard = ({ game }) => {
+const GameCard = ({ game, onClick }) => {
   const {
     spot,
     start_time: startTime,
@@ -140,6 +141,7 @@ const GameCard = ({ game }) => {
       m={2}
       style={{ maxWidth: CARD_WIDTH, width: '100%', overflow: 'hidden' }}
       height={cardHeight}
+      onClick={onClick}
     >
       <Top
         alignItems="center"
@@ -171,7 +173,7 @@ const GameCard = ({ game }) => {
             {/* <GameCanceledFlag /> */}
           </React.Fragment>
         )}
-        <Container>
+        <Inner>
           <Text
             fontFamily="raj"
             size="ML"
@@ -210,7 +212,7 @@ const GameCard = ({ game }) => {
               <Attendees attendees={attendees} />
             </React.Fragment>
           )}
-        </Container>
+        </Inner>
       </Bottom>
     </Card>
   );
@@ -218,6 +220,11 @@ const GameCard = ({ game }) => {
 
 GameCard.propTypes = {
   game: propType(gameFragment).isRequired,
+  onClick: PropTypes.func,
+};
+
+GameCard.defaultProps = {
+  onClick: () => {},
 };
 
 export default GameCard;

@@ -1,4 +1,6 @@
 import React from 'react';
+// import Link from 'next/link';
+import Router from 'next/router';
 import { Query } from 'react-apollo';
 import { Flex, Text } from 'rebass';
 import moment from 'moment';
@@ -96,7 +98,13 @@ const Games = () => (
           justifyContent="center"
           flexWrap="wrap"
         >
-          {data.games.map(game => <GameCard key={game.uuid} game={game} />)}
+          {data.games.map(game => (
+            <GameCard
+              key={game.uuid}
+              game={game}
+              onClick={() => { Router.push(`/game-details?uuid=${game.uuid}`); }}
+            />
+          ))}
         </Flex>
       );
     }}
