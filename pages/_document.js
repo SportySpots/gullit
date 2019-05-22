@@ -25,6 +25,7 @@ class MyDocument extends Document {
       <html lang="en">
         <Head>
           <link href="https://fonts.googleapis.com/css?family=Rajdhani:400,600,700" rel="stylesheet" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
           {/* Step 5: Output the styles in the head  */}
           {styleTags}
         </Head>
