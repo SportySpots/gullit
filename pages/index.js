@@ -1,16 +1,20 @@
 import React from 'react';
-
 import Link from 'next/link';
+import { Heading } from 'rebass';
 
-function Home() {
-  return (
-    <div>
-      <Link href="/games">
-        <a>games page</a>
-      </Link>
-     Welcome to Next.js!
-    </div>
-  );
-}
+const Home = () => (
+  <div>
+    <Link href="/games">
+      <a>games page</a>
+    </Link>
+    <Heading
+      color="error"
+      fontFamily="raj"
+      as="h3"
+    >
+      Welcome to Next.js!
+    </Heading>
+  </div>
+);
 
 export default Home;

@@ -8,6 +8,14 @@ exports[`Storyshots Index Home 1`] = `
   >
     games page
   </a>
-  Welcome to Next.js!
+  <h3
+    className="sc-bdVaJa sc-htpNat sc-bxivhb euIxZE"
+    color="error"
+    fontFamily="raj"
+    fontSize={4}
+    fontWeight="bold"
+  >
+    Welcome to Next.js!
+  </h3>
 </div>
 `;
