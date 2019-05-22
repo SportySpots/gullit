@@ -18,7 +18,7 @@ const Header = () => (
     alignItems="center"
     justifyContent="space-between"
   >
-    <Box px="2">
+    <Box px="4">
       <img
         src="/static/sportyspots-logo.png"
         alt="placeholder"

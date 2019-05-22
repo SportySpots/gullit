@@ -64,7 +64,7 @@ const { coords } = CITIES[0];
 
 const variables = {
   offset: 0,
-  limit: 10,
+  limit: 30,
   ordering: 'start_time',
   start_time__gte: moment().startOf('day').toISOString(),
   distance: `${parseInt(1000 * maxDistance, 10)}:${coords.latitude}:${coords.longitude}`,
