@@ -1,7 +1,8 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
 import moment from 'moment';
-// import { Text } from 'rebass';
+import styled from 'styled-components';
+import { Box, Text, Flex } from 'rebass';
 
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { getSpotImages } from '../../../utils';
@@ -11,6 +12,24 @@ import { getSpotImages } from '../../../utils';
 //------------------------------------------------------------------------------
 const HEIGHT = 192;
 const WIDTH = 300;
+//------------------------------------------------------------------------------
+// STYLE:
+//------------------------------------------------------------------------------
+const Relative = styled(Box)`
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+`;
+//------------------------------------------------------------------------------
+const AbsoluteDate = styled(Flex)`
+  position: absolute;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
+//------------------------------------------------------------------------------
+const Img = styled.img`
+  border-radius: 8px;
+`;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -28,7 +47,8 @@ const GameDate = ({ game }) => {
 
   // const isCanceled = status === 'CANCELED';
   // const attendees = getAttendees(game.attendees);
-  const formattedStartTime = moment.utc(startTime).local().format('D-MM HH:mm');
+  const day = moment.utc(startTime).local().format('D');
+  const month = moment.utc(startTime).local().format('MMMM');
   // const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S');
   // * (!!attendees && attendees.length > 0);
 
@@ -39,12 +59,36 @@ const GameDate = ({ game }) => {
   });
 
   return (
-    <img
-      src={imgs[0]}
-      alt={formattedStartTime}
-      height={HEIGHT}
-      width={WIDTH}
-    />
+    <Relative>
+      <AbsoluteDate
+        flexDirection="column"
+        alignItems="center"
+        bg="actionYellow"
+        p={3}
+      >
+        <Text
+          fontFamily="raj"
+          fontSize={3}
+          fontWeight="900"
+          color="white"
+        >
+          {day}
+        </Text>
+        <Text
+          fontFamily="raj"
+          fontWeight="900"
+          color="white"
+        >
+          {month}
+        </Text>
+      </AbsoluteDate>
+      <Img
+        src={imgs[0]}
+        alt={spot.name}
+        height={HEIGHT}
+        width={WIDTH}
+      />
+    </Relative>
   );
 };
 

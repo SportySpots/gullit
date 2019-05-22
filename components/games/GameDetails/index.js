@@ -1,14 +1,15 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
-import { Text } from 'rebass';
+// import { Text } from 'rebass';
 
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
+import GameDate from '../GameDate';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const GameDetails = ({ game }) => (
-  <Text>{JSON.stringify(game)}</Text>
+  <GameDate game={game} />
 );
 
 GameDetails.propTypes = {
