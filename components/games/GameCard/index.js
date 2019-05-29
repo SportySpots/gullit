@@ -186,7 +186,7 @@ const GameCard = ({ game, onClick }) => {
           </Text>
           <Spacer size="M" />
           <Flex alignItems="center">
-            <Icon name="schedule" size={24} color="white" />
+            <Icon name="watch_later" size={24} color="white" />
             <Spacer row size="M" />
             <Text
               fontFamily="raj"
