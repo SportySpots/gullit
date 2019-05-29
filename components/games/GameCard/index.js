@@ -25,7 +25,6 @@ import Avatar from '../../common/Avatar';
 import Organizer from '../Organizer';
 import Attendees from '../Attendees';
 // import GameCanceledFlag from '../GameCanceledFlag';
-import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -121,7 +120,6 @@ const GameCard = ({ game, onClick }) => {
   console.log('game', game);
 
   const isCanceled = status === 'CANCELED';
-  const attendees = getAttendees(game.attendees);
   const formattedStartTime = moment.utc(startTime).local().format('D-MM HH:mm');
   const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S');
   // * (!!attendees && attendees.length > 0);
@@ -206,12 +204,8 @@ const GameCard = ({ game, onClick }) => {
               {spot.name}
             </Text>
           </Flex>
-          {attendees.length > 0 && (
-            <React.Fragment>
-              <Spacer size="L" />
-              <Attendees attendees={attendees} />
-            </React.Fragment>
-          )}
+          <Spacer size="L" />
+          <Attendees game={game} />
         </Inner>
       </Bottom>
     </Card>

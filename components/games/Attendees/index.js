@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { propType } from 'graphql-anywhere';
 import { Flex } from 'rebass';
-import userNameAvatarFragment from '../../../GraphQL/Users/Fragments/userNameAvatar';
+import gameFragment from '../../../GraphQL/Games/Fragments/game';
 import Avatar from '../../common/Avatar';
 import CappedList from '../../common/CappedList';
 import Spacer from '../../common/Spacer';
 import getPixelsFromSize from '../../common/Spacer/utils';
+import { getAttendees } from '../utils';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -25,9 +25,11 @@ class Attendees extends React.PureComponent {
   // }
 
   render() {
-    const { attendees } = this.props;
+    const { game } = this.props;
     // const { width } = this.state;
     const width = 300; // Card width
+
+    const attendees = getAttendees(game.attendees);
 
     if (attendees.length === 0) {
       return null;
@@ -63,16 +65,7 @@ class Attendees extends React.PureComponent {
 }
 
 Attendees.propTypes = {
-  attendees: PropTypes.arrayOf(
-    PropTypes.shape({
-      status: PropTypes.oneOf(['ATTENDING']),
-      user: propType(userNameAvatarFragment),
-    }),
-  ),
-};
-
-Attendees.defaultProps = {
-  attendees: [],
+  game: propType(gameFragment).isRequired,
 };
 
 export default Attendees;

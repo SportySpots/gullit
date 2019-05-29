@@ -4,8 +4,11 @@ import { Query } from 'react-apollo';
 import { Text, Flex } from 'rebass';
 
 import GET_GAME_DETAILS from '../GraphQL/Games/Queries/GET_GAME_DETAILS';
+import Spacer from '../components/common/Spacer';
 import GameDate from '../components/games/GameDate';
 import GameDetails from '../components/games/GameDetails';
+import GameDescription from '../components/games/GameDescription';
+import Attendees from '../components/games/Attendees';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -38,10 +41,20 @@ class GameDetailsPage extends React.Component {
             return <Text>Something went wrong</Text>;
           }
 
+          const { game } = data;
+          console.log('game', game);
+
+          const childProps = { game };
+
           return (
             <Flex flexDirection="column">
-              <GameDate game={data.game} />
-              <GameDetails game={data.game} />
+              <GameDate {...childProps} />
+              <Spacer size="L" />
+              <GameDetails {...childProps} />
+              <Spacer size="L" />
+              <GameDescription {...childProps} />
+              <Spacer size="L" />
+              <Attendees {...childProps} />
             </Flex>
           );
         }}

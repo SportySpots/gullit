@@ -9,6 +9,6 @@ module.exports = {
     // seedorfGraphQLUrl: 'https://api.sportyspots.com/graphql',
     seedorfGraphQLUrl: 'http://localhost:8080/https://api.sportyspots.com/graphql',
     seedorfHost: 'https://api.sportyspots.com',
-    googleMapsKey: 'AIzaSyDcrz6IS88hTZTYlg3yvWyMRBpJ16jnQ5U',
+    googleMapsKey: 'xxx',
   },
 };
