@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Box } from 'rebass';
+import { Box, Flex } from 'rebass';
 import styled from 'styled-components';
 import Header from '../Header';
 import Download from '../Download';
@@ -18,12 +18,20 @@ const Container = styled(Flex)`
 // COMPONENT:
 //------------------------------------------------------------------------------
 const Main = ({ children }) => (
-  <Container flexDirection="column">
+  <Container
+    flexDirection="column"
+    alignItems="center"
+    bg="concrete"
+  >
     <Header />
-    <Box flex="1" bg="concrete">
+    <Box
+      flex="1"
+      p="2"
+      className="app-width"
+    >
       {children}
+      <Download />
     </Box>
-    <Download />
     <Footer />
   </Container>
 );

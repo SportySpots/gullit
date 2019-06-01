@@ -3,13 +3,14 @@ import { Flex, Box } from 'rebass';
 import styled from 'styled-components';
 
 const Container = styled(Flex)`
-  border-top: 1px solid ${({ theme }) => theme.colors.shade}
+  border-top: 1px solid ${({ theme }) => theme.colors.shade};
 `;
 
 const Footer = () => (
   <Container
     justifyContent="space-between"
     bg="dusk"
+    width="100%"
   >
     <Box color="white">
       I&apos;m the footer
