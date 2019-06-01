@@ -18,18 +18,15 @@ const HEIGHT = 192;
 const Relative = styled(Box)`
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  height: ${HEIGHT}px;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.colors.silver};
 `;
 //------------------------------------------------------------------------------
 const AbsoluteDate = styled(Flex)`
   position: absolute;
   border-top-left-radius: 8px;
   border-bottom-right-radius: 8px;
-`;
-//------------------------------------------------------------------------------
-const Img = styled.img`
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.silver};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -98,7 +95,7 @@ class GameDate extends React.PureComponent {
             {month}
           </Text>
         </AbsoluteDate>
-        <Img
+        <img
           src={imgs[0]}
           alt={spot.name}
           height={HEIGHT}

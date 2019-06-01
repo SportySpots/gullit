@@ -21,6 +21,7 @@ const HEIGHT = 300;
 //------------------------------------------------------------------------------
 const Container = styled(Box)`
   border-radius: 8px;
+  overflow: hidden;
 `;
 //------------------------------------------------------------------------------
 const Img = styled.img`
@@ -52,6 +53,7 @@ class GameDetails extends React.PureComponent {
     } = game;
 
     const formattedStartTime = moment.utc(startTime).local().format('D-MM HH:mm');
+    const mapWidth = Math.min(APP_WIDTH, windowWidth) - 16; // remove horizontal padding
 
     return (
       <Container bg="white">
@@ -83,10 +85,10 @@ class GameDetails extends React.PureComponent {
         </Box>
 
         <Img
-          src={`https://maps.googleapis.com/maps/api/staticmap?markers=color:red%7C${spot.address.lat},${spot.address.lng}&size=600x300&zoom=13&key=${publicRuntimeConfig.googleMapsKey}`}
+          src={`https://maps.googleapis.com/maps/api/staticmap?markers=color:red%7C${spot.address.lat},${spot.address.lng}&size=${mapWidth}x${HEIGHT}&zoom=13&key=${publicRuntimeConfig.googleMapsKey}`}
           alt="map"
           height={HEIGHT}
-          width={Math.min(APP_WIDTH, windowWidth) - 16} // remove horizontal padding
+          width={mapWidth}
         />
 
         <Box p={3}>
