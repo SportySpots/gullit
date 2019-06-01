@@ -24,6 +24,7 @@ class Attendees extends React.PureComponent {
   //   this.setState({ width: nativeEvent.layout.width });
   // }
 
+
   render() {
     const { game } = this.props;
     // const { width } = this.state;
@@ -63,6 +64,11 @@ class Attendees extends React.PureComponent {
     );
   }
 }
+
+Attendees.getLength = ({ game }) => {
+  const attendees = getAttendees(game.attendees);
+  return attendees.length;
+};
 
 Attendees.propTypes = {
   game: propType(gameFragment).isRequired,

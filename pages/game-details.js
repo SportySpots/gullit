@@ -8,7 +8,7 @@ import Spacer from '../components/common/Spacer';
 import GameDate from '../components/games/GameDate';
 import GameDetails from '../components/games/GameDetails';
 import GameDescription from '../components/games/GameDescription';
-import Attendees from '../components/games/Attendees';
+import GameAttendees from '../components/games/GameAttendees';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -54,7 +54,7 @@ class GameDetailsPage extends React.Component {
               <Spacer size="L" />
               <GameDescription {...childProps} />
               <Spacer size="L" />
-              <Attendees {...childProps} />
+              <GameAttendees {...childProps} />
             </Flex>
           );
         }}
