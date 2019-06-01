@@ -8,6 +8,7 @@ import Footer from '../Footer';
 const Container = styled(Flex)`
   min-height: 100vh;
   width: 100%;
+  padding-top: 60px; /* Header height. See Header */
 `;
 
 const Main = ({ children }) => (

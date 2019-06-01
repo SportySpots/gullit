@@ -7,8 +7,14 @@ import styled from 'styled-components';
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled(Flex)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
   height: 60px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.shade}
+  border-bottom: 1px solid ${({ theme }) => theme.colors.shade};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
