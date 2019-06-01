@@ -4,6 +4,7 @@ import moment from 'moment';
 import styled from 'styled-components';
 import { Box, Text, Flex } from 'rebass';
 
+import { APP_WIDTH } from '../../../constants';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { getSpotImages } from '../../../utils';
 
@@ -11,7 +12,7 @@ import { getSpotImages } from '../../../utils';
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const HEIGHT = 192;
-const WIDTH = 300;
+const WIDTH = APP_WIDTH; // 300; // App width
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -29,6 +30,8 @@ const AbsoluteDate = styled(Flex)`
 //------------------------------------------------------------------------------
 const Img = styled.img`
   border-radius: 8px;
+  width: 100%;
+  max-width: ${WIDTH}px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -86,7 +89,7 @@ const GameDate = ({ game }) => {
         src={imgs[0]}
         alt={spot.name}
         height={HEIGHT}
-        width={WIDTH}
+        // width={WIDTH}
       />
     </Relative>
   );

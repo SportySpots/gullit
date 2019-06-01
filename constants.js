@@ -1,0 +1,1 @@
+export const APP_WIDTH = 540; // eslint-disable-line

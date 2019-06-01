@@ -9,31 +9,32 @@ import Footer from '../Footer';
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
-const Container = styled(Flex)`
+const Outer = styled(Flex)`
   min-height: 100vh;
   width: 100%;
   padding-top: 60px; /* Header height. See Header */
 `;
 //------------------------------------------------------------------------------
+const Inner = styled(Box)`
+  width: 100%;
+  max-width: 540px;
+`;
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const Main = ({ children }) => (
-  <Container
+  <Outer
     flexDirection="column"
     alignItems="center"
     bg="concrete"
   >
     <Header />
-    <Box
-      flex="1"
-      p="2"
-      className="app-width"
-    >
+    <Inner flex="1" p="2">
       {children}
       <Download />
-    </Box>
+    </Inner>
     <Footer />
-  </Container>
+  </Outer>
 );
 
 Main.propTypes = {
