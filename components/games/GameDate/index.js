@@ -12,7 +12,6 @@ import { getSpotImages } from '../../../utils';
 // CONSTANTS:
 //------------------------------------------------------------------------------
 const HEIGHT = 192;
-const WIDTH = APP_WIDTH; // 300; // App width
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -30,70 +29,85 @@ const AbsoluteDate = styled(Flex)`
 //------------------------------------------------------------------------------
 const Img = styled.img`
   border-radius: 8px;
-  width: 100%;
-  max-width: ${WIDTH}px;
+  background-color: ${({ theme }) => theme.colors.silver};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-const GameDate = ({ game }) => {
-  const {
-    spot,
-    start_time: startTime,
-    // status,
-    // organizer,
-    // sport,
-    // name,
-  } = game;
+class GameDate extends React.PureComponent {
+  state = {
+    windowWidth: APP_WIDTH,
+  }
 
-  console.log('game', game);
+  componentDidMount() {
+    this.setState({ windowWidth: window.innerWidth }); // eslint-disable-line
+  }
 
-  // const isCanceled = status === 'CANCELED';
-  // const attendees = getAttendees(game.attendees);
-  const day = moment.utc(startTime).local().format('D');
-  const month = moment.utc(startTime).local().format('MMMM');
-  // const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S');
-  // * (!!attendees && attendees.length > 0);
+  render() {
+    const { game } = this.props;
+    const { windowWidth } = this.state;
+    console.log('windowWidth', windowWidth);
 
-  const imgs = getSpotImages({ // always return an image
-    images: spot.images || [],
-    height: HEIGHT,
-    width: WIDTH,
-  });
+    const {
+      spot,
+      start_time: startTime,
+      // status,
+      // organizer,
+      // sport,
+      // name,
+    } = game;
 
-  return (
-    <Relative>
-      <AbsoluteDate
-        flexDirection="column"
-        alignItems="center"
-        bg="actionYellow"
-        p={3}
-      >
-        <Text
-          fontFamily="raj"
-          fontSize={3}
-          fontWeight="900"
-          color="white"
+    console.log('game', game);
+
+    // const isCanceled = status === 'CANCELED';
+    // const attendees = getAttendees(game.attendees);
+    const day = moment.utc(startTime).local().format('D');
+    const month = moment.utc(startTime).local().format('MMMM');
+    // const cardHeight = (isCanceled ? CARD_HEIGHT_CANCELED : CARD_HEIGHT) + Avatar.size('S');
+    // * (!!attendees && attendees.length > 0);
+
+    const imgWidth = Math.min(APP_WIDTH, windowWidth) - 16; // remove horizontal padding
+
+    const imgs = getSpotImages({ // always return an image
+      images: spot.images || [],
+      height: HEIGHT,
+      width: imgWidth,
+    });
+
+    return (
+      <Relative>
+        <AbsoluteDate
+          flexDirection="column"
+          alignItems="center"
+          bg="actionYellow"
+          p={3}
         >
-          {day}
-        </Text>
-        <Text
-          fontFamily="raj"
-          fontWeight="900"
-          color="white"
-        >
-          {month}
-        </Text>
-      </AbsoluteDate>
-      <Img
-        src={imgs[0]}
-        alt={spot.name}
-        height={HEIGHT}
-        // width={WIDTH}
-      />
-    </Relative>
-  );
-};
+          <Text
+            fontFamily="raj"
+            fontSize={3}
+            fontWeight="900"
+            color="white"
+          >
+            {day}
+          </Text>
+          <Text
+            fontFamily="raj"
+            fontWeight="900"
+            color="white"
+          >
+            {month}
+          </Text>
+        </AbsoluteDate>
+        <Img
+          src={imgs[0]}
+          alt={spot.name}
+          height={HEIGHT}
+          width={imgWidth}
+        />
+      </Relative>
+    );
+  }
+}
 
 GameDate.propTypes = {
   game: propType(gameDetailsFragment).isRequired,

@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from 'rebass';
 import styled from 'styled-components';
+
+import { APP_WIDTH } from '../../constants';
 import Header from '../Header';
 import Download from '../Download';
 import Footer from '../Footer';
@@ -17,7 +19,7 @@ const Outer = styled(Flex)`
 //------------------------------------------------------------------------------
 const Inner = styled(Box)`
   width: 100%;
-  max-width: 540px;
+  max-width: ${APP_WIDTH}px;
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:

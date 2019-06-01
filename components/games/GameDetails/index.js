@@ -13,10 +13,19 @@ import Organizer from '../Organizer';
 const { publicRuntimeConfig } = getConfig();
 
 //------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const HEIGHT = 300;
+//------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
 const Container = styled(Box)`
   border-radius: 8px;
+`;
+//------------------------------------------------------------------------------
+const Img = styled.img`
+  height: ${HEIGHT}px;
+  background-color: ${({ theme }) => theme.colors.silver};
 `;
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -73,10 +82,10 @@ class GameDetails extends React.PureComponent {
           </table>
         </Box>
 
-        <img
+        <Img
           src={`https://maps.googleapis.com/maps/api/staticmap?markers=color:red%7C${spot.address.lat},${spot.address.lng}&size=600x300&zoom=13&key=${publicRuntimeConfig.googleMapsKey}`}
           alt="map"
-          height={300}
+          height={HEIGHT}
           width={Math.min(APP_WIDTH, windowWidth) - 16} // remove horizontal padding
         />
 
