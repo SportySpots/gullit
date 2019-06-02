@@ -1,5 +1,6 @@
 import React from 'react';
-import { Flex, Box } from 'rebass';
+import Router from 'next/router';
+import { Box, Flex } from 'rebass';
 import styled from 'styled-components';
 // import BurgerButton from '../BurgerButton';
 
@@ -17,6 +18,10 @@ const Container = styled(Flex)`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 //------------------------------------------------------------------------------
+const Img = styled.img`
+  cursor: pointer;
+`;
+//------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
 const Header = () => (
@@ -24,8 +29,11 @@ const Header = () => (
     alignItems="center"
     justifyContent="space-between"
   >
-    <Box px="4">
-      <img
+    <Box
+      px="4"
+      onClick={() => { Router.push('/'); }}
+    >
+      <Img
         src="/static/sportyspots-logo.png"
         alt="placeholder"
         height="35"

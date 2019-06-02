@@ -25,7 +25,6 @@ const Relative = styled(Box)`
 //------------------------------------------------------------------------------
 const AbsoluteDate = styled(Flex)`
   position: absolute;
-  border-top-left-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
 //------------------------------------------------------------------------------
@@ -77,7 +76,7 @@ class GameDate extends React.PureComponent {
           flexDirection="column"
           alignItems="center"
           bg="actionYellow"
-          p={3}
+          p={2}
         >
           <Text
             fontFamily="raj"
