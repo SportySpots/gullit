@@ -49,11 +49,11 @@ class GameDetailsPage extends React.Component {
           return (
             <Flex flexDirection="column">
               <GameDate {...childProps} />
-              <Spacer size="L" />
+              <Spacer size="M" />
               <GameDetails {...childProps} />
-              <Spacer size="L" />
+              <Spacer size="M" />
               <GameDescription {...childProps} />
-              <Spacer size="L" />
+              <Spacer size="M" />
               <GameAttendees {...childProps} />
             </Flex>
           );

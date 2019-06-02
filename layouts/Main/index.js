@@ -4,6 +4,7 @@ import { Box, Flex } from 'rebass';
 import styled from 'styled-components';
 
 import { APP_WIDTH } from '../../constants';
+import Spacer from '../../components/common/Spacer';
 import Header from '../Header';
 import Download from '../Download';
 import Footer from '../Footer';
@@ -33,8 +34,10 @@ const Main = ({ children }) => (
     <Header />
     <Inner flex="1" p="2">
       {children}
+      <Spacer size="XXL" />
       <Download />
     </Inner>
+    <Spacer size="XXL" />
     <Footer />
   </Outer>
 );

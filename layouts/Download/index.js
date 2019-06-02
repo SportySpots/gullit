@@ -2,6 +2,12 @@ import React from 'react';
 import { Box, Flex, Heading } from 'rebass';
 import styled from 'styled-components';
 
+import Spacer from '../../components/common/Spacer';
+
+//------------------------------------------------------------------------------
+// CONSTANTS:
+//------------------------------------------------------------------------------
+const WIDTH = 180;
 //------------------------------------------------------------------------------
 // STYLE:
 //------------------------------------------------------------------------------
@@ -13,7 +19,7 @@ const Container = styled(Flex)`
 //------------------------------------------------------------------------------
 const Download = () => (
   <Container
-    justifyContent="center"
+    alignItems="center"
     flexDirection="column"
     bg="transparent"
   >
@@ -22,21 +28,24 @@ const Download = () => (
       // fontSize={4}
       // fontWeight={900}
       as="h3"
+      textAlign="center"
     >
       Download the app
     </Heading>
+    <Spacer size="XXL" />
     <Box>
       <img
         src="/static/google-play-badge.png"
         alt="Download on Google Play"
-        width="200"
+        width={WIDTH - 2}
       />
     </Box>
+    <Spacer size="XL" />
     <Box>
       <img
         src="/static/apple_store_badge.svg"
         alt="Download on Apple Store"
-        width="200"
+        width={WIDTH}
       />
     </Box>
   </Container>
