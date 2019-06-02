@@ -14,8 +14,8 @@ const GameDescription = ({ game }) => {
   return (
     <Module title="Description">
       <Text
-        fontSize={[3]}
-        // fontWeight={600}
+        fontSize={[4]}
+        fontWeight={600}
       >
         {description}
       </Text>

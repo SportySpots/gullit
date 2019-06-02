@@ -4,7 +4,7 @@ import colors from './colors';
 const theme = {
   breakpoints: ['40em', '52em', '64em'],
   fontSizes: [
-    12, 14, 16, 18, 24, 28, 32, 40,
+    12, 14, 16, 18, 20, 28, 32, 40,
   ],
   colors,
   space: [

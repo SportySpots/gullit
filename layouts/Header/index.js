@@ -30,7 +30,7 @@ const Header = () => (
     justifyContent="space-between"
   >
     <Box
-      px="4"
+      px="2"
       onClick={() => { Router.push('/'); }}
     >
       <Img
