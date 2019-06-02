@@ -1,6 +1,6 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
-import { Box, Text, Heading } from 'rebass';
+import { Box } from 'rebass';
 import styled from 'styled-components';
 import { Icon } from 'microicon';
 import moment from 'moment';
@@ -8,6 +8,7 @@ import getConfig from 'next/config';
 
 import { APP_WIDTH } from '../../../constants';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
+import Text from '../../common/Text';
 import Organizer from '../Organizer';
 
 const { publicRuntimeConfig } = getConfig();
@@ -59,9 +60,10 @@ class GameDetails extends React.PureComponent {
       <Container bg="white">
         <Box p={3}>
           <Text
-            fontFamily="raj"
-            fontSize={4}
-            fontWeight={900}
+            as="h3"
+            fontSize={[5]}
+            fontWeight="700"
+            mt={0}
           >
             {name}
           </Text>
@@ -70,15 +72,15 @@ class GameDetails extends React.PureComponent {
             <tbody>
               <tr>
                 <td><Icon name="label" size={24} color="black" /></td>
-                <td><Text fontFamily="raj">{sport.name}</Text></td>
+                <td><Text>{sport.name}</Text></td>
               </tr>
               <tr>
                 <td><Icon name="watch_later" size={24} color="black" /></td>
-                <td><Text fontFamily="raj">{formattedStartTime}</Text></td>
+                <td><Text>{formattedStartTime}</Text></td>
               </tr>
               <tr>
                 <td><Icon name="place" size={24} color="black" /></td>
-                <td><Text fontFamily="raj">{spot.name}</Text></td>
+                <td><Text>{spot.name}</Text></td>
               </tr>
             </tbody>
           </table>
@@ -92,14 +94,13 @@ class GameDetails extends React.PureComponent {
         />
 
         <Box p={3}>
-          <Heading
-            fontFamily="raj"
+          <Text
+            as="h4"
             fontSize={2}
             // fontWeight={600}
-            as="h4"
           >
             Hosted by
-          </Heading>
+          </Text>
           <Organizer organizer={organizer} />
         </Box>
       </Container>

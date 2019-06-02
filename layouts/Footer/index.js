@@ -1,8 +1,9 @@
 import React from 'react';
-import { Flex, Box, Text } from 'rebass';
+import { Flex, Box } from 'rebass';
 // import styled from 'styled-components';
 import { Icon } from 'microicon';
 
+import Text from '../../components/common/Text';
 import Spacer from '../../components/common/Spacer';
 
 //------------------------------------------------------------------------------
@@ -17,23 +18,30 @@ import Spacer from '../../components/common/Spacer';
 const Footer = () => (
   <Box width="100%">
     <Box bg="dusk" p={4}>
-      I&apos;m the footer
+      <Text
+        color="white"
+        fontSize={[2]}
+        fontWeight="600"
+      >
+        About Sportyspots
+      </Text>
     </Box>
     <Box bg="concrete" p={4}>
       <Text
         color="black"
-        fontFamily="raj"
+        fontSize={[3]}
         fontWeight="600"
         textAlign="center"
       >
         You can always contact us via
       </Text>
+      <Spacer size="M" />
       <Flex alignItems="center" justifyContent="center">
         <Icon name="email" size={24} color="black" />
-        <Spacer row size="M" />
+        <Spacer row size="L" />
         <Text
           color="black"
-          fontFamily="raj"
+          fontSize={[3]}
           fontWeight="600"
         >
           hello@sportyspots.com

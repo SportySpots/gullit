@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Flex, Heading } from 'rebass';
+import { Box, Flex } from 'rebass';
 import styled from 'styled-components';
 
+import Text from '../../components/common/Text';
 import Spacer from '../../components/common/Spacer';
 
 //------------------------------------------------------------------------------
@@ -23,16 +24,15 @@ const Download = () => (
     flexDirection="column"
     bg="transparent"
   >
-    <Heading
-      fontFamily="raj"
-      // fontSize={4}
-      // fontWeight={900}
+    <Text
       as="h3"
+      fontSize={[5]}
+      fontWeight="700"
       textAlign="center"
     >
       Download the app
-    </Heading>
-    <Spacer size="XXL" />
+    </Text>
+    {/* <Spacer size="XXL" /> */}
     <Box>
       <img
         src="/static/google-play-badge.png"

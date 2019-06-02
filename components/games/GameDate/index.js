@@ -2,11 +2,12 @@ import React from 'react';
 import { propType } from 'graphql-anywhere';
 import moment from 'moment';
 import styled from 'styled-components';
-import { Box, Text, Flex } from 'rebass';
+import { Box, Flex } from 'rebass';
 
 import { APP_WIDTH } from '../../../constants';
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
 import { getSpotImages } from '../../../utils';
+import Text from '../../common/Text';
 
 //------------------------------------------------------------------------------
 // CONSTANTS:
@@ -79,15 +80,14 @@ class GameDate extends React.PureComponent {
           p={2}
         >
           <Text
-            fontFamily="raj"
-            fontSize={3}
+            fontSize={[4]}
             fontWeight="900"
             color="white"
           >
             {day}
           </Text>
           <Text
-            fontFamily="raj"
+            fontSize={[3]}
             fontWeight="900"
             color="white"
           >

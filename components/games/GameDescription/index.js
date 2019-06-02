@@ -1,8 +1,9 @@
 import React from 'react';
 import { propType } from 'graphql-anywhere';
-import { Text } from 'rebass';
-import Module from '../Module';
+
 import gameDetailsFragment from '../../../GraphQL/Games/Fragments/gameDetails';
+import Text from '../../common/Text';
+import Module from '../Module';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -13,9 +14,8 @@ const GameDescription = ({ game }) => {
   return (
     <Module title="Description">
       <Text
-        fontFamily="raj"
-        fontSize={2}
-        fontWeight={600}
+        fontSize={[3]}
+        // fontWeight={600}
       >
         {description}
       </Text>

@@ -11,7 +11,7 @@ import { publicRuntimeConfig } from '../next.config'
 // See: https://github.com/zeit/next.js/issues/4024
 setConfig({ publicRuntimeConfig })
 
-const req = require.context('../', true, /stories\.js$/);
+const req = require.context('../components', true, /stories\.js$/);
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));

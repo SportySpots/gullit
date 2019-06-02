@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Box, Heading } from 'rebass';
+import { Box } from 'rebass';
+
+import Text from '../../common/Text';
 
 //------------------------------------------------------------------------------
 // STYLE:
@@ -14,14 +16,14 @@ const Container = styled(Box)`
 //------------------------------------------------------------------------------
 const Module = ({ title, children }) => (
   <Container bg="white" p={3}>
-    <Heading
-      fontFamily="raj"
-      // fontSize={4}
-      // fontWeight={900}
+    <Text
       as="h3"
+      fontSize={[5]}
+      fontWeight="700"
+      mt={0}
     >
       {title}
-    </Heading>
+    </Text>
     {children}
   </Container>
 );
